@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  frontend:
+    build: frontend
+    ports:
+      - 8501:8501
+    networks: 
+      AIservice: 
+        aliases: 
+          - frontend.docker
+    depends_on:
+      - backend
+    volumes:
+        - ./frontend:/app
+        - ./storage:/storage
+
+  backend:
+    build: backend
+    ports:
+      - 8000:8000
+    networks: 
+      AIservice: 
+        aliases: 
+          - backend.docker
+    volumes:
+      - ./backend:/app
+      - ./storage:/storage
+
+
+
+networks:
+  AIservice:
+    external: true

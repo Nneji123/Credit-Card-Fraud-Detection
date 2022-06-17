@@ -1,0 +1,4 @@
+colabcode
+fastapi
+uvicorn
+pyngrok
