@@ -1,4 +1,0 @@
-colabcode
-fastapi
-uvicorn
-pyngrok
