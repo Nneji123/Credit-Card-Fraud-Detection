@@ -1,72 +1,102 @@
 import streamlit as st
-import requests as re
 import json
+import requests as re
 
-st.write("""# Credit Card Fraud Detection Web App""")
+st.title("Credit Card Fraud Detection Web App")
 
 st.image("image.png")
 
 st.write("""
 ## About
-
 Credit card fraud is a form of identity theft that involves an unauthorized taking of another's credit card information for the purpose of charging purchases to the account or removing funds from it.
 
-**This Streamlit App utilizes a Machine Learning API in order to detect fraudulent credit card  based on the following criteria: age, gender, blood pressure, smoke, coughing, allergies, fatigue etc.** 
+**This Streamlit App utilizes a Machine Learning API in order to detect fraudulent credit card  based on the following criteria: hours, type of transaction, amount, balance before and after transaction etc.** 
 
-The notebook, processed dataset, model and documentation(Dockerfiles, FastAPI script, Streamlit App script) are available on [GitHub.](https://github.com/Nneji123/Credit-Card-Fraud-Detection)        
+The notebook, model and documentation(Dockerfiles, FastAPI script, Streamlit App script) are available on [GitHub.](https://github.com/Nneji123/Credit-Card-Fraud-Detection)        
 
-**Made by Group 3 Zummit Africa Team**
+**Made by Group 3 Zummit Africa AI/ML Team**
 
-**Contributors: Hilary Ifezue(Group Lead)
-                Nneji Ifeanyi
-                Somtochukwu Ogechi
-                ThankGod Omieje
-**
+**Contributors:** 
+- **Hilary Ifezue(Group Lead)**
+- **Nneji Ifeanyi**
+- **Somtochukwu Ogechi**
+- **ThankGod Omieje**
 """)
 
 
-st.sidebar.header('User Input Features')
+st.sidebar.header('Input Features of The Transaction')
 
-
-gender = st.sidebar.number_input("GENDER: Enter 1 for Male and 0 for Female", min_value=0, max_value=1)
-age = st.sidebar.slider("AGE: Enter your Age", min_value=1, max_value=100)
-smoking = st.sidebar.number_input("SMOKING: Enter 1 if you smoke or 0 if you don't smoke", min_value=0, max_value=1)
-yellow_finger = st.sidebar.number_input("YELLOW FINGERS: Enter 1 if you have yellow fingers or 0 if you don't", min_value=0, max_value=1)
-anxiety = st.sidebar.number_input("ANXIETY: Enter 1 if you have anxiety and 0 if you don't", min_value=0, max_value=1)
-peer = st.sidebar.number_input("PEER PRESSURE: Enter 1 if you feel you suffer from peer pressure or 0 if you don't", min_value=0, max_value=1)
-chronic = st.sidebar.number_input("CHRONIC DISEASE: Enter 1 if you suffer from a chronic disease or O if you don't", min_value=0, max_value=1)
-fatigue = st.sidebar.number_input("FATIGUE: Enter 1 if you have fatigue or 0 if you don't", min_value=0, max_value=1)
-allergy = st.sidebar.number_input("ALLERGY: Enter 1 if you have some sort of allergy or 0 if you don't", min_value=0, max_value=1)
-wheezing = st.sidebar.number_input("WHEEZING: Enter 1 if you wheeze or 0 if you don't", min_value=0, max_value=1)
-alcohol =  st.sidebar.number_input("ALCOHOL CONSUMPTION: Enter 1 if you consume alcohol or 0 if you don't", min_value=0, max_value=1)
-coughing = st.sidebar.number_input("COUGHING: Enter 1 if you cough a lot or 0 if you don't", min_value=0, max_value=1)
-breath = st.sidebar.number_input("SHORTNESS OF BREATH: Enter 1 if you suffer from shortness of breath or 0 if you don't", min_value=0, max_value=1)
-swallow =  st.sidebar.number_input("SWALLOWING DIFFICULTY: Enter 1 if you have difficulty swallowing or 0 if you don't", min_value=0, max_value=1)
-chest =  st.sidebar.number_input("CHEST PAIN: Enter 1 if you have chest pain or 0 if you don't", min_value=0, max_value=1)
-
-
-
-if st.button('Detection Result'):
-    values =  {
+sender_name = st.sidebar.text_input("""Input Sender ID""")
+receiver_name = st.sidebar.text_input("""Input Receiver ID""")
+step = st.sidebar.slider("""Number of Hours it took the Transaction to complete: """)
+types = st.sidebar.subheader(f"""
+                 Enter Type of Transfer Made:\n\n\n\n
+                 0 for 'Cash In' Transaction\n 
+                 1 for 'Cash Out' Transaction\n 
+                 2 for 'Debit' Transaction\n
+                 3 for 'Payment' Transaction\n  
+                 4 for 'Transfer' Transaction\n""")
+types = st.sidebar.selectbox("",(0,1,2,3,4))
+x = ''
+if types == 0:
+    x = 'Cash in'
+if types == 1:
+    x = 'Cash Out'
+if types == 2:
+    x = 'Debit'
+if types == 3:
+    x = 'Payment'
+if types == 4:
+    x =  'Transfer'
     
-    "GENDER": gender,
-    "AGE": age,
-    "SMOKING": smoking,
-    "YELLOW_FINGERS": yellow_finger,
-    "ANXIETY": anxiety,
-    "PEER_PRESSURE": peer,
-    "CHRONIC_DISEASE": chronic,
-    "FATIGUE": fatigue,
-    "ALLERGY": allergy,
-    "WHEEZING": wheezing,
-    "ALCOHOL_CONSUMPTION": alcohol,
-    "COUGHING": coughing,
-    "SHORTNESS_OF_BREATH": breath,
-    "SWALLOWING_DIFFICULTY": swallow,
-    "CHEST_PAIN": chest
+amount = st.sidebar.number_input("Amount in $",min_value=0, max_value=110000)
+oldbalanceorg = st.sidebar.number_input("""Original Balance Before Transaction was made""",min_value=0, max_value=110000)
+newbalanceorg= st.sidebar.number_input("""New Balance After Transaction was made""",min_value=0, max_value=110000)
+oldbalancedest= st.sidebar.number_input("""Old Balance""",min_value=0, max_value=110000)
+newbalancedest= st.sidebar.number_input("""New Balance""",min_value=0, max_value=110000)
+isflaggedfraud = st.sidebar.selectbox("""Specify if this was flagged as Fraud by your System: """,(0,1))
+
+
+if st.button("Detection Result"):
+    values = {
+    "step": step,
+    "types": types,
+    "amount": amount,
+    "oldbalanceorig": oldbalanceorg,
+    "newbalanceorig": newbalanceorg,
+    "oldbalancedest": oldbalancedest,
+    "newbalancedest": newbalancedest,
+    "isflaggedfraud": isflaggedfraud
     }
-    res = re.post(f"http://backend.docker:8000/predict", json=values)
+
+
+    st.write(f"""### These are the transaction details:\n
+    Sender ID: {sender_name}
+    Receiver ID: {receiver_name}
+    1. Number of Hours it took to complete: {step}\n
+    2. Type of Transaction: {x}\n
+    3. Anount Sent: {amount}\n
+    4. Previous Balance Before Transaction: {oldbalanceorg}\n
+    5. New Balance After Transaction: {newbalanceorg}\n
+    6. Old Balance Destination Recepient Balance: {oldbalancedest}\n
+    7. New Balance Destination Recepient Balance: {newbalancedest}\n
+    8. System Flag Fraud Status: {isflaggedfraud}
+                """)
+
+    res = re.post(f"http://backend.docker:8000/predict/",json=values)
     json_str = json.dumps(res.json())
     resp = json.loads(json_str)
+    
+    if sender_name=='' or receiver_name == '':
+        st.write("Error Please Input Name")
+    else:
+        st.write(f"""### The '{x}' transaction that took place between {sender_name} and {receiver_name} is {resp[0]}.""")
 
-    st.write(resp[0])
+
+
+
+
+
+
+
+
