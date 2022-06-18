@@ -10,7 +10,7 @@ from pydantic import BaseModel
 
 app = FastAPI(
     title="Credit Card Fraud Detection API",
-    description="""An API that utilises a Machine Learning model that detects if a credit card transaction is fraudulent or not based on the following features: age, gender, blood pressure, smoke, coughing, allergies, fatigue etc.""",
+    description="""An API that utilises a Machine Learning model that detects if a credit card transaction is fraudulent or not based on the following features: hours, amount, transaction type etc.""",
     version="0.1.0", debug=True)
 
 
