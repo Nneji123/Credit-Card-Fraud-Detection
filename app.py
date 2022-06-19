@@ -23,6 +23,11 @@ Credit Card Fraud Detection API 🙌🏻
 Note: add "/docs" to the URL to get the Swagger UI Docs or "/redoc"
   """
   return note
+
+favicon_path = 'favicon.png'
+@app.get('/favicon.png', include_in_schema=False)
+async def favicon():
+    return FileResponse(favicon_path)
 																	
 class fraudDetection(BaseModel):
     step:int
