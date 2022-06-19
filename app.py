@@ -11,14 +11,19 @@ from pydantic import BaseModel
 app = FastAPI(
     title="Credit Card Fraud Detection API",
     description="""An API that utilises a Machine Learning model that detects if a credit card transaction is fraudulent or not based on the following features: hours, amount, transaction type etc.""",
-    version="0.1.0", debug=True)
+    version="1.0.0", debug=True)
 
 
 model = joblib.load('credit_fraud.pkl')
 
-@app.get('/')
-def home():
-    return {'Title': 'Credit Card Fraud Detection API'}
+@app.get("/", response_class=PlainTextResponse)
+async def running():
+  note = """
+Credit Card Fraud Detection API 🙌🏻
+
+Note: add "/docs" to the URL to get the Swagger UI Docs or "/redoc"
+  """
+  return note
 																	
 class fraudDetection(BaseModel):
     step:int
