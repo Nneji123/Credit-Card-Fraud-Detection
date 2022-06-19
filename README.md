@@ -81,12 +81,12 @@ pyngrok
 ```
 !pip install -r requirements.txt
 ```
-2. Change the working directory:
+3. Change the working directory:
 ```
 !cd /content/Credit-Card-Fraud-Detection
 ```
 
-3. Install Ngrok to your Google Colab Instance:
+4. Install Ngrok to your Google Colab Instance:
 ```
 !wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 !tar -xvzf ngrok-v3-stable-linux-amd64.tgz
@@ -94,8 +94,8 @@ pyngrok
 ```
 Replace "your_token" with your token which is available on [Ngrok](https://dashboard.ngrok.com/get-started/your-authtoken)
 
-4. Copy the contents of the **app.py** file to an empty cell and then run the cell.
-5. Instantiate ColabCode and run the FastAPI app by running the following code in a new cell:
+5. Copy the contents of the **app.py** file to an empty cell and then run the cell.
+6. Instantiate ColabCode and run the FastAPI app by running the following code in a new cell:
 ```
 from colabcode import ColabCode
 cc = ColabCode(port=18000, code=False)
