@@ -21,31 +21,23 @@ An end-to-end Machine Learning Project carried out by Group 3 Zummit Africa AI/M
 ## Problem Statement
 Credit card fraud is an inclusive term for fraud committed using a payment card, such as a credit card or debit card. The purpose may be to obtain goods or services or to make payment to another account, which is controlled by a criminal.
  
-**This Streamlit App utilizes a Machine Learning model served as an API with FastAPI framework in order to detect fraudulent credit card transactions  based on the following criteria: age, gender, blood pressure, smoke, coughing, allergies, fatigue etc.**
+**This Streamlit App utilizes a Machine Learning model served as an API with FastAPI framework in order to detect fraudulent credit card transactions  based on the following criteria: hours, type of transaction, amount, balance before and after transaction etc.**
 
-The machine learning model used for this app was deployed as an API using the FastAPI framework and then accessed through a frontend interface with Streamlit.
+The machine learning model used for this web application was deployed as an API using the FastAPI framework and then accessed through a frontend interface with Streamlit.
 
-The App can be viewed [through this link](https://share.streamlit.io/nneji123/lung-cancer-prediction/main)
+The App can be viewed [through this link](https://share.streamlit.io/nneji123/credit-card-fraud-detection/main)
 
 
-The API and its documentation can be viewed [here](https://lung-cancer-api.herokuapp.com/docs) or [here](https://lung-cancer-api.herokuapp.com/redoc)
+The API and its documentation can be viewed [here](https://credit-fraud-ml-api.herokuapp.com/docs) or [here](https://credit-fraud-ml-api.herokuapp.com/redoc)
 
 ## Data Preparation
-The original dataset contains 16 columns and 310 rows with the "GENDER" and "LUNG_CANCER" columns containing object data types while the rest of the columns were integer datatypes.
 
-The data was then cleaned and processed for modelling by changing the following:
-- The values "M" and "F" in the "GENDER column were converted to 1 and 0 respectively.
-- The values "YES" and "NO" in the "LUNG_CANCER" column were converted to 1 and 0 respectively.
-- The values "2" and "1" in the rest of the columns were converted to 1 and 0 respectively.
+[Paper Review Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
 
-The processed dataset was then saved as **processed_lung_cancer.csv**
-
-[Original Dataset](https://github.com/Nneji123/Lung-Cancer-Prediction/blob/main/Datasets/lung_cancer.csv)
-
-[Processed Dataset](https://github.com/Nneji123/Lung-Cancer-Prediction/blob/main/Datasets/processed_lung_cancer.csv)
+[Model Deployment Dataset](https://www.kaggle.com/datasets/ealaxi/paysim1v)
 
 ### Modelling
-In this project I tested 6 different classification algorithms namely:
+In this project different classification algorithms namely:
 
 - Logistic Regression
 - Decision Tree
@@ -55,7 +47,7 @@ In this project I tested 6 different classification algorithms namely:
 - SupportVectorClassifier
 
 
-The final model used for the API was the Gradient Boost Classifier model which had an accuracy score of 0.94.
+The final model used for the API was the **Random Forest Classifier** model which had an accuracy score of 0.99.
 
 
 ## Preview
@@ -74,7 +66,7 @@ The final model used for the API was the Gradient Boost Classifier model which h
 
 To run a demo or carry out testing with the API it's best to do that with Google Colab. To run/test the API on Google Colab do the following:
 1. Clone the repository.
-2. Open a Google Colab instance and upload the **Lung Cancer Prediction.ipynb** file to that instance.
+2. Open a Google Colab instance and upload the **Credit_Card_Fraud_Detection_by_Group_3_Zummit_Africa_AI_ML_Team.ipynb** file to that instance.
 3. Run each cell until the last cell and you should be able to view the API with a link that has the name **ngrok** in it.
 </details>
 
@@ -94,19 +86,19 @@ The Streamlit App can also be viewed using Google Colab by doing the following:
 4. Run the following code in your instance:
 ```
 from pyngrok import ngrok 
-public_url = ngrok.connect(port=’8501')
+public_url = ngrok.connect(port='8501')
 public_url
 ```
 5. You can then view the streamlit app on your Google Colab instance by running:
 ```
-!streamlit run /content/streamlit_app.py & npx localtunnel — port 8501
+!streamlit run /content/streamlit_app.py & npx localtunnel --port 8501
 ```
  
 </details>
 
 ## Running on Local Machine :computer:
 
-Since we have multiple containers communcating with each other, I created a bridge network called AIservice. For testing, a **docker-compose.yml** file has been included so as to run both the API and Streamlit app simultaneously as docker containers. To run the API and the Streamlit app on your local machine do the following:
+Since we have multiple containers communcating with each other, A bridge network was created called AIservice. For testing, a **docker-compose.yml** file has been included so as to run both the API and Streamlit app simultaneously as docker containers. To run the API and the Streamlit app on your local machine do the following:
 1. Clone the repository to your local machine
 2. Install docker and docker-compose if you haven't
 3. Open a bash/cmd in the directory and run:
@@ -128,8 +120,9 @@ Logs can be inspected via:
 docker-compose logs
 ```
 The **docker-compose** method can also be used to deploy the API and Streamlit app on Heroku(using Dockhero which is not free) or using cloud services such as Microsoft Azure, Amazon Web Services or Google Cloud Platform.
+
 ## Deployment
-The API has been deployed using the dockerfile on heroku.
+The API can be deployed using the dockerfile on heroku or by.
 
 <details> 
   <summary><b>💻 Deploying the API</b></summary>
