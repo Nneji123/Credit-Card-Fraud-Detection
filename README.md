@@ -128,13 +128,13 @@ pyngrok
 ```
 !pip install -r requirements.txt
 ```
-4. Run the following code in your instance:
+3. Run the following code in your instance:
 ```
 from pyngrok import ngrok 
 public_url = ngrok.connect(port='8501')
 public_url
 ```
-5. You can then view the streamlit app on your Google Colab instance by running:
+4. You can then view the streamlit app on your Google Colab instance by running:
 ```
 !streamlit run /content/streamlit_app.py & npx localtunnel --port 8501
 ```
