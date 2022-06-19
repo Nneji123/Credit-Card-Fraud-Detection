@@ -53,11 +53,17 @@ The final model used for the API was the **Random Forest Classifier** model whic
 ## Preview
 
 ### API Demo
-![fastapi](https://user-images.githubusercontent.com/101701760/173524600-961b66fc-da9f-4714-8240-52054e85d0b4.gif)
+
+
+https://user-images.githubusercontent.com/101701760/174500004-86cd4f2d-0505-4c26-a997-c00168410148.mp4
+
+
 
 ### Streamlit App Demo
 
-![streamlit](https://user-images.githubusercontent.com/101701760/173524653-7706e13f-d3c6-46cc-abb3-ac9f79316e4b.gif)
+
+https://user-images.githubusercontent.com/101701760/174499997-c4168778-10b0-42d5-84a6-82800872c3a3.mp4
+
 
 
 ## How to run API and Streamlit App on Google Colab:
