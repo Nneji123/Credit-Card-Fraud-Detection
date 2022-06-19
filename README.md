@@ -65,23 +65,67 @@ The final model used for the API was the **Random Forest Classifier** model whic
   <summary><b>💻 Running the API on Google Colab</b></summary>
 
 To run a demo or carry out testing with the API it's best to do that with Google Colab. To run/test the API on Google Colab do the following:
-1. Clone the repository.
-2. Open a Google Colab instance and upload the **Credit_Card_Fraud_Detection_by_Group_3_Zummit_Africa_AI_ML_Team.ipynb** file to that instance.
-3. Run each cell until the last cell and you should be able to view the API with a link that has the name **ngrok** in it.
+1. Clone the repository to your Google Colab Instance.
+```
+!git clone  https://github.com/Nneji123/Credit-Card-Fraud-Detection.git
+```
+2. Install the requirements by running the following codes:
+```
+%%writefile requirements.txt
+colabcode
+fastapi
+uvicorn
+pyngrok
+```
+
+```
+!pip install -r requirements.txt
+```
+2. Change the working directory:
+```
+!cd /content/Credit-Card-Fraud-Detection
+```
+
+3. Install Ngrok to your Google Colab Instance:
+```
+!wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+!tar -xvzf ngrok-v3-stable-linux-amd64.tgz
+!ngrok authtoken your_token
+```
+Replace "your_token" with your token which is available on [Ngrok](https://dashboard.ngrok.com/get-started/your-authtoken)
+
+4. Copy the contents of the **app.py** file to an empty cell and then run the cell.
+5. Instantiate ColabCode and run the FastAPI app by running the following code in a new cell:
+```
+from colabcode import ColabCode
+cc = ColabCode(port=18000, code=False)
+cc.run_app(app=app)
+```
+You should now be able to view the API by clicking on the generated link.
+
 </details>
 
 <details> 
   <summary><b>💻 Running the Streamlit App on Google Colab</b></summary>
 
 The Streamlit App can also be viewed using Google Colab by doing the following:
-1. Upload the "streamlit_app.py" and "requirements.txt" file to your instance on Google Colab
-2. Install the requirements by running:
+1. Copy the contents of "streamlit_app.py" to an empty cell and at the top of cell write the following code and run the cell.
+```
+%%writefile streamlit_app.py
+contents
+```
+
+2. Install the requirements by running the following codes in different cells:
+```
+%%writefile requirements.txt
+numpy==1.21.6
+requests==2.23.0
+streamlit==1.10.0
+pyngrok
+```
+
 ```
 !pip install -r requirements.txt
-```
-3. Install Pyngrok in your instance:
-```
-!pip install pyngrok
 ```
 4. Run the following code in your instance:
 ```
