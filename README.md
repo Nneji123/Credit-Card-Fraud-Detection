@@ -28,7 +28,7 @@ The machine learning model used for this web application was deployed 
 The App can be viewed [through this link](https://share.streamlit.io/nneji123/credit-card-fraud-detection/main)
 
 
-The API and its documentation can be viewed [here](https://credit-fraud-ml-api.herokuapp.com/docs) or [here](https://credit-fraud-ml-api.herokuapp.com/redoc)
+The API and its documentation can be viewed [here](https://credit-fraud-ml-api.herokuapp.com/docs) or [here.](https://credit-fraud-ml-api.herokuapp.com/redoc)
 
 ## Data Preparation
 
