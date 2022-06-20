@@ -167,7 +167,7 @@ docker-compose logs
 The **docker-compose** method can also be used to deploy the API and Streamlit app on Heroku(using Dockhero which is not free) or using cloud services such as Microsoft Azure, Amazon Web Services or Google Cloud Platform.
 
 ## Deployment
-The API can be deployed using the dockerfile on heroku or by.
+The API and Streamlit App have both been deployed using the dockerfile on heroku and Streamlit Cloud respectively.
 
 <details> 
   <summary><b>💻 Deploying the API</b></summary>
