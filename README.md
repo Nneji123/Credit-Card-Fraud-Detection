@@ -13,7 +13,7 @@ An end-to-end Machine Learning Project carried out by Group 3 Zummit Africa AI/M
 
 **Contributors**
 - IFEZUE TOONNAEMEKA HILARY
-- 
+- NNEJI IFEANYI DANIEL
 -
 -
 -
