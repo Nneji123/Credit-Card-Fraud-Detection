@@ -77,11 +77,11 @@ if st.button("Detection Result"):
     Receiver ID: {receiver_name}
     1. Number of Hours it took to complete: {step}\n
     2. Type of Transaction: {x}\n
-    3. Amount Sent: {amount}\n
-    4. Sender Balance Before Transaction: {oldbalanceorg}\n
-    5. Sender Balance After Transaction: {newbalanceorg}\n
-    6. Recepient Balance Before Transaction: {oldbalancedest}\n
-    7. Recepient Balance After Transaction: {newbalancedest}\n
+    3. Amount Sent: {amount}$\n
+    4. Sender Balance Before Transaction: {oldbalanceorg}$\n
+    5. Sender Balance After Transaction: {newbalanceorg}$\n
+    6. Recepient Balance Before Transaction: {oldbalancedest}$\n
+    7. Recepient Balance After Transaction: {newbalancedest}$\n
     8. System Flag Fraud Status: {isflaggedfraud}
                 """)
 
