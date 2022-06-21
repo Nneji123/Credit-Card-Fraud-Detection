@@ -75,11 +75,11 @@ if st.button("Detection Result"):
     Receiver ID: {receiver_name}
     1. Number of Hours it took to complete: {step}\n
     2. Type of Transaction: {x}\n
-    3. Anount Sent: {amount}\n
-    4. Previous Balance Before Transaction: {oldbalanceorg}\n
-    5. New Balance After Transaction: {newbalanceorg}\n
-    6. Old Balance Destination Recepient Balance: {oldbalancedest}\n
-    7. New Balance Destination Recepient Balance: {newbalancedest}\n
+    3. Amount Sent: {amount}\n
+    4. Sender Previous Balance Before Transaction: {oldbalanceorg}\n
+    5. Sender New Balance After Transaction: {newbalanceorg}\n
+    6. Recepient Balance Before Transaction: {oldbalancedest}\n
+    7. Recepient Balance After Transaction: {newbalancedest}\n
     8. System Flag Fraud Status: {isflaggedfraud}
                 """)
 
@@ -88,7 +88,7 @@ if st.button("Detection Result"):
     resp = json.loads(json_str)
     
     if sender_name=='' or receiver_name == '':
-        st.write("Error Please Input Name")
+        st.write("Error! Please input Transaction ID or Names of Sender and Receiver!")
     else:
         st.write(f"""### The '{x}' transaction that took place between {sender_name} and {receiver_name} is {resp[0]}.""")
 
