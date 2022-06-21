@@ -32,22 +32,19 @@ The API and its documentation can be viewed [here](https://credit-fraud-ml-api.h
 
 ## Data Preparation
 
-[Paper Review Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+Publicly accessible datasets on financial services are scarce, particularly in the newly growing field of mobile money transfers. Many scholars, like us who conduct research in the field of fraud detection, value financial datasets. Because financial transactions are inherently private, there are no publicly accessible datasets, which contributes to the problem. 
 
-[Model Deployment Dataset](https://www.kaggle.com/datasets/ealaxi/paysim1v)
+A synthetic dataset generated using the simulator called PaySim was used as the dataset for building the model used in this project. PaySim uses aggregated data from the private dataset to generate a synthetic dataset that resembles the normal operation of transactions and injects malicious behaviour to later evaluate the performance of fraud detection methods.
+
+[Dataset](https://www.kaggle.com/datasets/ealaxi/paysim1v)
 
 ### Modelling
-In this project different classification algorithms namely:
+In this project 2 different classification algorithms were tested namely:
 
 - Logistic Regression
-- Decision Tree
 - Random Forest
-- XGBoost
-- GradientBoostClassifier
-- SupportVectorClassifier
 
-
-The final model used for the API was the **Random Forest Classifier** model which had an accuracy score of 0.99.
+The final model used for the API was the **Random Forest Classifier** model which had an accuracy score of 0.99 and an F1 score of 0.86.
 
 
 ## Preview
