@@ -1,0 +1,5 @@
+digraph "classes" {
+rankdir=BT
+charset="utf-8"
+"app.fraudDetection" [color="black", fontcolor="black", label="{fraudDetection|amount : float\lisflaggedfraud : float\lnewbalancedest : float\lnewbalanceorig : float\loldbalancedest : float\loldbalanceorig : float\lstep : int\ltypes : int\l|}", shape="record", style="solid"];
+}
