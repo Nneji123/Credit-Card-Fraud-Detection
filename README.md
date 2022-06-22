@@ -12,11 +12,13 @@
 An end-to-end Machine Learning Project carried out by Group 3 Zummit Africa AI/ML Team to detect fraudulent credit card transactions. Built with FastAPI, Streamlit and Docker.
 
 ## Contributors
-- **IFEZUE TOONNAEMEKA HILARY**
 - **NNEJI IFEANYI DANIEL**
+- **IFEZUE TOONNAEMEKA HILARY**
 - **SOMTOCHUKWU OGUCHIENTI**
--
--
+
+You can check out the article on Medium describing in detail how this project was carried out.
+
+https://medium.com/mlearning-ai/credit-card-fraud-detection-2527ca04c3de
 
 ## Problem Statement
 Credit card fraud is an inclusive term for fraud committed using a payment card, such as a credit card or debit card. The purpose may be to obtain goods or services or to make payment to another account, which is controlled by a criminal.
