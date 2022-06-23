@@ -87,7 +87,7 @@ if st.button("Detection Result"):
     5. Sender Balance After Transaction: {newbalanceorg}$\n
     6. Recepient Balance Before Transaction: {oldbalancedest}$\n
     7. Recepient Balance After Transaction: {newbalancedest}$\n
-    8. System Flag Fraud Status: {isflaggedfraud}
+    8. System Flag Fraud Status(Transaction amount greater than $200000): {isflaggedfraud}
                 """)
 
     res = re.post(f"https://credit-fraud-ml-api.herokuapp.com/predict",json=values)
