@@ -59,7 +59,7 @@ newbalancedest= st.sidebar.number_input("""Recipient Balance After Transaction w
 isflaggedfraud = 0
 if amount >= 200:
   isflaggedfraud = 1
- else:
+else:
   isflaggedfraud = 0
 
 
