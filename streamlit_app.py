@@ -56,7 +56,11 @@ oldbalanceorg = st.sidebar.number_input("""Sender Balance Before Transaction was
 newbalanceorg= st.sidebar.number_input("""Sender Balance After Transaction was made""",min_value=0, max_value=110000)
 oldbalancedest= st.sidebar.number_input("""Recipient Balance Before Transaction was made""",min_value=0, max_value=110000)
 newbalancedest= st.sidebar.number_input("""Recipient Balance After Transaction was made""",min_value=0, max_value=110000)
-isflaggedfraud = st.sidebar.selectbox("""Specify if this was flagged as Fraud by your System: """,(0,1))
+isflaggedfraud = 0
+if amount >= 200:
+  isflaggedfraud = 1
+ else:
+  isflaggedfraud = 0
 
 
 if st.button("Detection Result"):
