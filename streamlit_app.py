@@ -23,6 +23,7 @@ The notebook, model and documentation(Dockerfiles, FastAPI script, Streamlit App
 - **Nneji Ifeanyi**
 - **Somtochukwu Ogechi**
 - **ThankGod Omieje**
+- **Kachukwu Okoh**
 """)
 
 
