@@ -166,6 +166,12 @@ docker-compose logs
 ```
 The **docker-compose** method can also be used to deploy the API and Streamlit app on Heroku(using Dockhero which is not free) or using cloud services such as Microsoft Azure, Amazon Web Services or Google Cloud Platform.
 
+### Running in a Gitpod Cloud Environment
+
+**Click the button below to start a new development environment:**
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Nneji123/Credit-Card-Fraud-Detection.)
+
 ## Deployment
 The API and Streamlit App have both been deployed using the dockerfile on heroku and Streamlit Cloud respectively.
 
